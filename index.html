@@ -2,54 +2,100 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Web Programming Course</title>
+<title>About Me</title>
 <style>
     body {
         margin: 0;
-        font-family: Arial, sans-serif; 
+        font-family: Arial, sans-serif;
         background: linear-gradient(to bottom right, blue, yellow);
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
-    }
-    h1 {
-        text-align: center;
         color: white;
-        padding: 20px 0;
     }
-    ul {
+    h1, h2 {
+        text-align: center;
+        padding-top: 20px;
+    }
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    p {
+        line-height: 1.6;
+    }
+    .links, .images {
+        margin: 20px 0;
+    }
+    .links ul {
         list-style-type: none;
         padding: 0;
-        margin: 40px 0;
     }
-    li {
-        margin: 20px;
-        text-align: center;
+    .links li {
+        margin: 10px 0;
     }
-    a {
-        text-decoration: none;
+    .links a {
         color: white;
-        font-size: 1.2em;
+        text-decoration: none;
         background-color: rgba(0, 0, 0, 0.3);
-        padding: 10px 20px;
+        padding: 10px 15px;
         border-radius: 5px;
-        display: inline-block;
     }
-    a:hover {
+    .links a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    .images img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+    }
+    .back-link {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .back-link a {
+        color: white;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 10px 15px;
+        border-radius: 5px;
+    }
+    .back-link a:hover {
         background-color: rgba(255, 255, 255, 0.3);
     }
 </style>
 </head>
 <body>
-<h1>Web Programming Course</h1>
 
-<ul>
-    <li><a href="#">Unit 2 - Tables, Forms, and JavaScript Basics</a></li>
-    <li><a href="#">Unit 3 - Multimedia and JavaScript Selection</a></li>
-    <li><a href="#">Unit 4 - Using CSS and JavaScript Functions</a></li>
-    <li><a href="#">Unit 5 - Advanced CSS and JavaScript Repetition</a></li>
-    <li><a href="#">Unit 6 - Let's Present Your Site</a></li>
-</ul>
+<h1>About Me</h1>
+
+<div class="content">
+    <p>Hello! My name is Steven. I am passionate about technology, especially building custom PCs to solve different tasks. In my free time, I love browsing through <a href="https://pcpartpicker.com/" target="_blank">PCPartPicker.com</a>, configuring and planning different PC builds that optimize performance and efficiency for various needs.</p>
+    
+    <p>I also have a deep interest in flight simulation. It allows me to experience the joy of flying and satisfies my wanderlust when I can't travel. Exploring virtual skies through realistic simulators keeps me engaged and constantly learning.</p>
+    
+    <div class="links">
+        <h2>My Favorite Websites</h2>
+        <ul>
+            <li><a href="https://pcpartpicker.com/" target="_blank">PCPartPicker.com</a> - For my love of building PCs.</li>
+            <li><a href="https://flightsimbuilder.com/" target="_blank">Flight Sim Builder</a> - Exploring flight simulation setups.</li>
+            <li><a href="https://learn.microsoft.com/en-us/" target="_blank">Microsoft Learn</a> - Enhancing my skills as an Endpoint Engineer.</li>
+        </ul>
+    </div>
+    
+    <div class="images">
+        <h2>Gallery</h2>
+        <img src="images/travel1.jpg" alt="Travel Photo 1">
+        <img src="images/dogs.jpg" alt="Fun with Our Dogs">
+    </div>
+</div>
+
+<div class="back-link">
+    <a href="index.html">Back to Home</a>
+</div>
 
 </body>
 </html>
+
