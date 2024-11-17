@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Unit 2 - Travel Wishlist Form</title>
+<title>Unit 2 - Guess Where I've Been</title>
 <style>
     body {
         margin: 0;
@@ -24,6 +24,10 @@
         background-color: rgba(0, 0, 0, 0.6);
         border-radius: 10px;
     }
+    p {
+        font-size: 1.2em;
+        text-align: center;
+    }
     form {
         margin-top: 20px;
     }
@@ -32,18 +36,6 @@
         margin-top: 15px;
         font-size: 1.1em;
     }
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1em;
-    }
-    input[type="radio"],
     input[type="checkbox"] {
         margin-right: 10px;
     }
@@ -59,6 +51,11 @@
     }
     input[type="submit"]:hover {
         background-color: #ffaf7b;
+    }
+    .message {
+        margin-top: 30px;
+        font-size: 1.2em;
+        text-align: center;
     }
     .back-link {
         text-align: center;
@@ -89,77 +86,42 @@
 </style>
 </head>
 <body>
-
-<h1>Travel Wishlist Form</h1>
+<h1>Guess Where I've Been!</h1>
 <div class="content">
-    <form action="#" method="post">
-        <label for="name">1. Your Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">2. Your Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label>3. Countries You've Visited (Selected are ones you've been to):</label>
-        <input type="checkbox" id="mexico" name="visited_countries" value="Mexico" checked disabled>
-        <label for="mexico">Mexico</label><br>
-        <input type="checkbox" id="japan" name="visited_countries" value="Japan" checked disabled>
-        <label for="japan">Japan</label><br>
-        <input type="checkbox" id="canada" name="visited_countries" value="Canada" checked disabled>
-        <label for="canada">Canada</label><br>
-        <input type="checkbox" id="usa" name="visited_countries" value="USA">
-        <label for="usa">USA</label><br>
-        <input type="checkbox" id="other" name="visited_countries" value="Other">
-        <label for="other">Other</label>
-        <label for="destinations">4. Which continents would you like to explore next? (Select multiple):</label>
-        <select id="destinations" name="destinations" multiple size="4">
-            <option value="Europe">Europe</option>
-            <option value="Asia">Asia</option>
-            <option value="South America">South America</option>
-            <option value="Australia">Australia</option>
-            <option value="Africa">Africa</option>
-            <option value="Antarctica">Antarctica</option>
-        </select>
-        <label>5. Preferred Mode of Travel:</label>
-        <input type="radio" id="plane" name="travel_mode" value="Plane" required>
-        <label for="plane">Plane</label><br>
-        <input type="radio" id="train" name="travel_mode" value="Train">
-        <label for="train">Train</label><br>
-        <input type="radio" id="car" name="travel_mode" value="Car">
-        <label for="car">Car</label><br>
-        <input type="radio" id="ship" name="travel_mode" value="Ship">
-        <label for="ship">Ship</label>
-        <label for="duration">6. Ideal Trip Duration:</label>
-        <select id="duration" name="duration">
-            <option value="Less than a week">Less than a week</option>
-            <option value="1-2 weeks">1-2 weeks</option>
-            <option value="More than 2 weeks">More than 2 weeks</option>
-        </select>
-        <label>7. Favorite Travel Activities (Select all that apply):</label>
-        <input type="checkbox" id="sightseeing" name="activities" value="Sightseeing">
-        <label for="sightseeing">Sightseeing</label><br>
-        <input type="checkbox" id="adventure" name="activities" value="Adventure Sports">
-        <label for="adventure">Adventure Sports</label><br>
-        <input type="checkbox" id="food" name="activities" value="Culinary Experiences">
-        <label for="food">Culinary Experiences</label><br>
-        <input type="checkbox" id="relaxation" name="activities" value="Relaxation">
-        <label for="relaxation">Relaxation</label><br>
-        <input type="checkbox" id="culture" name="activities" value="Cultural Exploration">
-        <label for="culture">Cultural Exploration</label>
-        <label for="budget">8. Estimated Budget for Your Next Trip (USD):</label>
-        <input type="text" id="budget" name="budget">
-        <label for="season">9. Preferred Season for Travel:</label>
-        <select id="season" name="season">
-            <option value="Spring">Spring</option>
-            <option value="Summer">Summer</option>
-            <option value="Fall">Fall</option>
-            <option value="Winter">Winter</option>
-        </select>
-        <label for="comments">10. Any Additional Comments or Preferences:</label>
-        <textarea id="comments" name="comments" rows="4" placeholder="Share your thoughts..."></textarea>
-        <input type="submit" value="Submit">
+    <p>Select the countries you think I've visited:</p>
+    <form id="travelForm">
+    <label><input type="checkbox" name="countries" value="Canada">Canada</label>
+     <label><input type="checkbox" name="countries" value="Mexico">Mexico</label>
+    <label><input type="checkbox" name="countries" value="Japan">Japan</label>
+    <label><input type="checkbox" name="countries" value="France">France</label>
+    <label><input type="checkbox" name="countries" value="Germany">Germany</label>
+    <label><input type="checkbox" name="countries" value="Brazil">Brazil</label>
+    <label><input type="checkbox" name="countries" value="Australia">Australia</label>
+    <label><input type="checkbox" name="countries" value="Italy">Italy</label>
+    <label><input type="checkbox" name="countries" value="South Africa">South Africa</label>
+    <input type="submit" value="Submit">
     </form>
+    <div id="message" class="message"></div>
 </div>
 <div class="back-link">
     <a href="index.html">Back to Home</a>
 </div>
 
+<script>
+document.getElementById('travelForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const visitedCountries = ['Canada', 'Mexico', 'Japan'];
+    const checkboxes = document.querySelectorAll('input[name="countries"]:checked');
+    const selectedCountries = Array.from(checkboxes).map(cb => cb.value);
+    const correct = visitedCountries.length === selectedCountries.length &&
+                    visitedCountries.every(country => selectedCountries.includes(country));
+    const messageDiv = document.getElementById('message');
+    if (correct) {
+        messageDiv.innerHTML = "YES, that's right!";
+    } else {
+        messageDiv.innerHTML = "HAHA not quite!<br><br>I have visited: <strong>" + visitedCountries.join(', ') + "</strong>.<br><br>I hope to visit all these countries someday soon!";
+    }
+});
+</script>
 </body>
 </html>
