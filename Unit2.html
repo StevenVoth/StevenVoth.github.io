@@ -147,7 +147,7 @@ document.getElementById('travelForm').addEventListener('submit', function(event)
         
         messageDiv.innerHTML = "YES, that's right!";
     } else {
-        messageDiv.innerHTML = "HAHA not quite!<br><br>I have visited: <strong>" + visitedCountries.join(', ') + "</strong>.<br><br>I hope to visit all these countries someday soon!";
+        messageDiv.innerHTML = "HAHA not quite!<br><br> + "</strong>.<br><br>I hope to visit all these countries someday soon!";
     }
     
     messageDiv.innerHTML += `<br><br>Total Attempts: ${totalAttempts}`;
