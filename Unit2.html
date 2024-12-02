@@ -101,6 +101,9 @@
     <div id="message" class="message"></div>
     <div id="hint" class="message"></div>
     <div id="elimination" class="message"></div>
+    <div class="reset-section">
+        <button id="reset-btn">Reset Points</button>
+    </div>
 </div>
 <div class="back-link">
     <a href="index.html">Back to Home</a>
@@ -162,7 +165,6 @@ document.getElementById('travelForm').addEventListener('submit', function(event)
     messageDiv.innerHTML += `<br>Correct Attempts: ${localStorage.getItem('correctAttempts')}`;
     messageDiv.innerHTML += `<br><br>Your score this time: ${points} points`;
     messageDiv.innerHTML += `<br>Total Points: ${totalPoints}`;
-    
     if (totalPoints < 5) {
         const unguessedCountries = visitedCountries.filter(country => !selectedCountries.includes(country));
         if (unguessedCountries.length > 0) {
@@ -170,33 +172,39 @@ document.getElementById('travelForm').addEventListener('submit', function(event)
             hintDiv.innerHTML = `Hint: A city in ${hintCountry} is ${hints[hintCountry]}`;
         }
     }
-    if (totalPoints >= 5) {
-        const remainingOptions = nonVisited.filter(country => 
-            !selectedCountries.includes(country)
-        );
-        if (remainingOptions.length > 0) {
-            eliminationDiv.innerHTML = `<br>You can spend 5 points to eliminate an option: 
-            <br>${remainingOptions.map(country => `<button class="eliminate-btn" data-country="${country}">Remove ${country}</button>`).join(' ')}`;
-        } else {
-            messageDiv.innerHTML += `<br><br>Only Canada, Mexico, and Japan remain. You win by technicality!`;
-        }
-    }
+    if (totalPoints >= 5 && nonVisited.length > 0) {
+        eliminationDiv.innerHTML = `<br>You can spend 5 points to remove an option:
+        <br><button id="eliminate-btn">Remove a random option</button>`;
 
-    document.querySelectorAll('.eliminate-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const country = this.dataset.country;
-            const idx = nonVisited.indexOf(country);
-            if (idx !== -1 && totalPoints >= 5) {
-                nonVisited.splice(idx, 1);
+        document.getElementById('eliminate-btn').addEventListener('click', function() {
+            if (totalPoints >= 5 && nonVisited.length > 0) {
                 totalPoints -= 5;
                 localStorage.setItem('totalPoints', totalPoints.toString());
-                eliminationDiv.innerHTML = `Removed ${country}!`;
-                document.getElementById('travelForm').reset();
+                const randomIndex = Math.floor(Math.random() * nonVisited.length);
+                nonVisited.splice(randomIndex, 1);
+
+                eliminationDiv.innerHTML = `An option was removed! Total Points: ${totalPoints}`;
+                if (nonVisited.length === 0) {
+                    eliminationDiv.innerHTML += `<br><br>Only Canada, Mexico, and Japan remain. You win by technicality!`;
+                }
             }
         });
-    });
+    }
 
     document.getElementById('travelForm').reset();
+});
+document.getElementById('reset-btn').addEventListener('click', function() {
+    localStorage.setItem('totalPoints', '0');
+    localStorage.setItem('totalAttempts', '0');
+    localStorage.setItem('correctAttempts', '0');
+
+    const messageDiv = document.getElementById('message');
+    const hintDiv = document.getElementById('hint');
+    const eliminationDiv = document.getElementById('elimination');
+
+    messageDiv.innerHTML = 'Points have been reset to zero!';
+    hintDiv.innerHTML = '';
+    eliminationDiv.innerHTML = '';
 });
 </script>
 </body>
