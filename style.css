@@ -16,6 +16,7 @@ h1, h2 {
     margin: 0 auto;
     padding: 20px;
 }
+
 p {
     line-height: 1.6;
 }
@@ -27,6 +28,7 @@ ul.nav {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 ul.nav li {
     margin: 20px;
 }
