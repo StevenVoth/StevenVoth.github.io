@@ -166,10 +166,10 @@ document.getElementById('travelForm').addEventListener('submit', function(event)
     messageDiv.innerHTML += `<br><br>Your score this time: ${points} points`;
     messageDiv.innerHTML += `<br>Total Points: ${totalPoints}`;
     if (totalPoints < 5) {
-        const unguessedCountries = visitedCountries.filter(country => !selectedCountries.includes(country));
-        if (unguessedCountries.length > 0) {
-            const hintCountry = unguessedCountries[0];
-            hintDiv.innerHTML = `Hint: A city in ${hintCountry} is ${hints[hintCountry]}`;
+    const unguessedCountries = visitedCountries.filter(country => !selectedCountries.includes(country));
+    if (unguessedCountries.length > 0) {
+    const hintCountry = unguessedCountries[0];
+    hintDiv.innerHTML = `Hint: A city in one of them is ${hints[hintCountry]}`;
         }
     }
     if (totalPoints >= 5 && nonVisited.length > 0) {
