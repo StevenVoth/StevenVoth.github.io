@@ -114,3 +114,49 @@ ul.nav a:hover {
         padding: 10px 15px;
     }
 }
+footer {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-top: 40px;
+    color: white;
+}
+
+footer h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+footer ul.references {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+footer ul.references li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+footer ul.references a {
+    color: white;
+    text-decoration: underline;
+}
+
+footer ul.references a:hover {
+    color: #ffaf7b;
+}
+
+footer p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #ffaf7b;
+}
