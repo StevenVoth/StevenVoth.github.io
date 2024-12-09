@@ -18,23 +18,14 @@
     <main>
         <h2>Flight Planner</h2>
         <p>
-            Plan your next simulated flight or real-world journey. Enter your departure and arrival airports, desired route, and conditions. 
-            (Future enhancements will include weather integration, route suggestions, and fuel calculations.)
+            Use the embedded tool below to view charts and plan your next simulated or real-world flight. 
+            You can explore different routes, check navigation aids, and review airspace information provided by SkyVector.
         </p>
 
-        <!-- Placeholder for future flight planning form -->
-        <form>
-            <label for="departure">Departure Airport (ICAO): </label>
-            <input type="text" id="departure" name="departure" placeholder="e.g., KJFK">
-            <br><br>
-            <label for="arrival">Arrival Airport (ICAO): </label>
-            <input type="text" id="arrival" name="arrival" placeholder="e.g., KLAX">
-            <br><br>
-            <label for="route">Planned Route: </label>
-            <textarea id="route" name="route" rows="4" cols="50" placeholder="Enter your route waypoints..."></textarea>
-            <br><br>
-            <input type="submit" value="Submit Plan">
-        </form>
+        <div id="sv_2708" style="width: 200px; height: 200px;">
+            Make your <a href="https://skyvector.com/">Flight Plan</a> at SkyVector.com
+        </div>
+        <script src="//skyvector.com/api/lchart?ll=33.65974348981975,-118.19970702744658&amp;s=10&amp;c=sv_2708&amp;i=301" type="text/javascript"></script>
     </main>
 
     <footer>
