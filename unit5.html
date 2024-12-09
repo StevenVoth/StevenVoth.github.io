@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Unit 5 - Quiz</title>
+<title>Unit 5 - Geography Quiz</title>
 <link rel="stylesheet" href="Unit5.css">
 </head>
 <body>
@@ -15,23 +15,25 @@
 
     <p id="message">Good luck!</p>
 
-    <!-- Easy Quiz -->
+    <!-- Easy Quiz Form (Hidden by default) -->
     <div id="easyQuiz" class="quiz-iframe">
         <iframe
           id="JotFormIFrame-243427665831058"
-          title="Quiz Form"
+          title="Easy Quiz Form"
           onload="window.parent.scrollTo(0,0)"
           allowtransparency="true"
           allow="geolocation; microphone; camera; fullscreen"
           src="https://form.jotform.com/243427665831058"
           frameborder="0"
-          scrolling="no"
+          scrolling="yes"
         ></iframe>
         <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-243427665831058']", "https://form.jotform.com/")</script>
+        <script>
+          window.jotformEmbedHandler("iframe[id='JotFormIFrame-243427665831058']", "https://form.jotform.com/")
+        </script>
     </div>
 
-    <!-- Hard Quiz -->
+    <!-- Hard Quiz Form (Hidden by default) -->
     <div id="hardQuiz" class="quiz-iframe">
         <iframe
           id="JotFormIFrame-243428470138154"
@@ -41,12 +43,15 @@
           allow="geolocation; microphone; camera; fullscreen"
           src="https://form.jotform.com/243428470138154"
           frameborder="0"
-          scrolling="no"
+          scrolling="yes"
         ></iframe>
         <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-243428470138154']", "https://form.jotform.com/")</script>
+        <script>
+          window.jotformEmbedHandler("iframe[id='JotFormIFrame-243428470138154']", "https://form.jotform.com/")
+        </script>
     </div>
 </div>
+
 <script>
     const easyBtn = document.getElementById('easyBtn');
     const hardBtn = document.getElementById('hardBtn');
@@ -59,11 +64,13 @@
         hardQuiz.style.display = 'none';
         message.style.display = 'block';
     });
+
     hardBtn.addEventListener('click', () => {
         hardQuiz.style.display = 'block';
         easyQuiz.style.display = 'none';
         message.style.display = 'block';
     });
 </script>
+
 </body>
 </html>
