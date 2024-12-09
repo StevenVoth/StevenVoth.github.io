@@ -2,51 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Unit 5 - Let's Do A Quiz</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(to bottom right, #3a1c71, #d76d77, #ffaf7b);
-        color: white;
-        margin: 0;
-        padding: 20px;
-    }
-    h1 {
-        text-align: center;
-        margin-top: 50px;
-    }
-    .quiz-container {
-        max-width: 800px;
-        margin: 40px auto;
-        background: rgba(0, 0, 0, 0.3);
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-    }
-    .quiz-container button {
-        background: rgba(0,0,0,0.3);
-        border: none;
-        color: white;
-        font-size: 1.2em;
-        padding: 10px 20px;
-        margin: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .quiz-container button:hover {
-        background: rgba(255,255,255,0.3);
-    }
-    #message {
-        margin-top: 20px;
-        font-size: 1.4em;
-        display: none;
-    }
-</style>
+<title>Unit 5 - Quiz</title>
+<link rel="stylesheet" href="Unit5.css">
 </head>
 <body>
 
-<h1>Quiz</h1>
+<h1>Geography Quiz</h1>
 <div class="quiz-container">
     <p>Select which quiz you would like to take:</p>
     <button id="easyBtn">Easy Quiz</button>
@@ -54,7 +15,8 @@
 
     <p id="message">Good luck!</p>
 
-    <div id="easyQuiz" style="display:none; margin-top:20px;">
+    <!-- Easy Quiz -->
+    <div id="easyQuiz" class="quiz-iframe">
         <iframe
           id="JotFormIFrame-243427665831058"
           title="Quiz Form"
@@ -63,14 +25,14 @@
           allow="geolocation; microphone; camera; fullscreen"
           src="https://form.jotform.com/243427665831058"
           frameborder="0"
-          style="min-width:100%;max-width:100%;height:539px;border:none;"
           scrolling="no"
         ></iframe>
         <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
         <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-243427665831058']", "https://form.jotform.com/")</script>
     </div>
 
-    <div id="hardQuiz" style="display:none; margin-top:20px;">
+    <!-- Hard Quiz -->
+    <div id="hardQuiz" class="quiz-iframe">
         <iframe
           id="JotFormIFrame-243428470138154"
           title="Hard Quiz Form"
@@ -79,14 +41,12 @@
           allow="geolocation; microphone; camera; fullscreen"
           src="https://form.jotform.com/243428470138154"
           frameborder="0"
-          style="min-width:100%;max-width:100%;height:539px;border:none;"
           scrolling="no"
         ></iframe>
         <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
         <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-243428470138154']", "https://form.jotform.com/")</script>
     </div>
 </div>
-
 <script>
     const easyBtn = document.getElementById('easyBtn');
     const hardBtn = document.getElementById('hardBtn');
@@ -99,14 +59,11 @@
         hardQuiz.style.display = 'none';
         message.style.display = 'block';
     });
-
     hardBtn.addEventListener('click', () => {
         hardQuiz.style.display = 'block';
         easyQuiz.style.display = 'none';
         message.style.display = 'block';
     });
 </script>
-
 </body>
 </html>
-
